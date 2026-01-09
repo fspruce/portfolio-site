@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import ThemeController from "./themeController";
+import ThemeController from "./ThemeController";
 
 export default function Navbar({ navigate, currentTheme, setCurrentTheme }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
