@@ -19,7 +19,7 @@ export default function Hero({ navigate }) {
             HTML, CSS, JavaScript and Python, and I have recently been
             self-learning the React library. In fact, this portfolio has been
             crafted with the help of React, Tailwind and DaisyUI! Alongisde
-            this, I have also been looking into C#, and strenghting my React
+            this, I have also been looking into C#, and strengthening my React
             skills whenever possible. <br /> <br />
             Please click the button below to find out more about me, my skills
             and my projects, and feel free to contact me with any queries you
