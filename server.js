@@ -15,7 +15,9 @@ const app = express();
 // Check if dist folder exists
 const distPath = join(__dirname, "dist");
 if (!existsSync(distPath)) {
-  console.error("Error: 'dist' folder not found. Make sure to run 'npm run build' first.");
+  console.error(
+    "Error: 'dist' folder not found. Make sure to run 'npm run build' first."
+  );
   process.exit(1);
 }
 
@@ -33,7 +35,9 @@ app.get("*", (req, res) => {
   if (existsSync(indexPath)) {
     res.sendFile(indexPath);
   } else {
-    res.status(404).send("Application not found. Please ensure the app is built properly.");
+    res
+      .status(404)
+      .send("Application not found. Please ensure the app is built properly.");
   }
 });
 
