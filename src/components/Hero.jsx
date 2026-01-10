@@ -1,11 +1,9 @@
-import fintanImg from "../assets/fintan.jpg";
-
 export default function Hero({ navigate }) {
   return (
     <div className="hero bg-base-200 grow flex items-center justify-center">
       <div className="hero-content p-10 flex-col lg:flex-row lg:gap-8">
         <img
-          src={fintanImg}
+          src="https://whvtyrgmvzxyewsmyszc.supabase.co/storage/v1/object/sign/portfolio-assets/images/hero/fintan.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iOTk1OTQxZi00MjUyLTQ5NjQtODFiNi0yMWUzYzVlYWEwYTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0Zm9saW8tYXNzZXRzL2ltYWdlcy9oZXJvL2ZpbnRhbi5qcGciLCJpYXQiOjE3NjgwNjEzNjAsImV4cCI6NDkyMTY2MTM2MH0.UsCdTPIkMHUQeFWczpEtTjVNktAD39kxkUToW4-dGe4"
           className="max-w-sm lg:max-w-md rounded-lg shadow-2xl"
         />
         <div className="flex flex-col justify-center">

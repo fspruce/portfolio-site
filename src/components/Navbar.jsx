@@ -70,7 +70,10 @@ export default function Navbar({ navigate }) {
             </label>
           </div>
           <div className="mx-2 flex-1 px-2">
-            <a onClick={() => navigate("/")}>
+            <a
+              onClick={() => navigate("/")}
+              className="cursor-pointer select-none"
+            >
               Fintan Spruce || Junior Developer
             </a>
           </div>

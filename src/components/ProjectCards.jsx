@@ -1,5 +1,4 @@
 export default function ProjectCards({
-  currentTheme,
   imageUrl,
   title,
   description,
