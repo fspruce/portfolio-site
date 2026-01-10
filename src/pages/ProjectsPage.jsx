@@ -9,7 +9,11 @@ export default function ProjectsPage() {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const { data, error } = await supabase.from("projects").select("*");
+        const { data, error } = await supabase
+          .from("projects")
+          .select("*")
+          .order("updated_at", { ascending: false, nullsFirst: false })
+          .order("created_at", { ascending: false });
         if (error) throw error; // Handle errors
         setProjects(data);
       } catch (err) {
@@ -29,6 +33,9 @@ export default function ProjectsPage() {
           description={project.description}
           techStack={project.tech_stack}
           dateUploaded={project.created_at}
+          dateUpdated={project.updated_at}
+          githubLink={project.github_link}
+          liveLink={project.live_link}
         />
       ))}
     </div>
