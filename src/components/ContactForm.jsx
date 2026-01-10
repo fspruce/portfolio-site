@@ -9,6 +9,7 @@ export default function ContactForm() {
   const sendEmail = (e) => {
     e.preventDefault();
     setIsSending(true);
+    setStatus("");
 
     const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -52,7 +53,7 @@ export default function ContactForm() {
                 type="text"
                 placeholder="Full Name"
                 className="input input-bordered input-lg w-full validator"
-                name="user_name"
+                name="name"
                 required
               />
               <p className="validator-hint hidden">Required</p>
@@ -65,7 +66,7 @@ export default function ContactForm() {
                 type="email"
                 placeholder="email@example.com"
                 className="input input-bordered input-lg w-full validator"
-                name="user_email"
+                name="email"
                 required
               />
               <p className="validator-hint hidden">Required</p>
@@ -106,6 +107,17 @@ export default function ContactForm() {
           >
             {isSending ? "Sending..." : "Send Message"}
           </button>
+          {/* Status Banner */}
+          {status === "success" && (
+            <div className="alert alert-success text-lg font-medium">
+              Your message has been sent successfully!
+            </div>
+          )}
+          {status === "error" && (
+            <div className="alert alert-error text-lg font-medium">
+              Failed to send your message. Please try again later.
+            </div>
+          )}
         </form>
       </div>
     </>
