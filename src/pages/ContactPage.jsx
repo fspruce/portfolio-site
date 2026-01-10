@@ -1,3 +1,5 @@
+import ContactForm from "../components/ContactForm";
+
 export default function ContactPage() {
-  return <a href="/">← Go Back </a>;
+  return <ContactForm />;
 }
