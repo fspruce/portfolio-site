@@ -1,3 +1,5 @@
+import { useGetCurrentTheme } from "../hooks/getCurrentTheme";
+
 export default function ProjectCards({
   imageUrl,
   title,
@@ -8,36 +10,62 @@ export default function ProjectCards({
   githubLink,
   liveLink,
 }) {
+  const currentTheme = useGetCurrentTheme();
   const techList = techStack ? techStack.split("/") : [];
   const daysForNewPost = 14; // Set this as the number of days for a post to be classed as new
-  console.log(liveLink, githubLink);
+  const uploadDate = new Date(dateUploaded);
+  const updateDate = new Date(dateUpdated);
+
   function isNewPost(date) {
     const today = new Date();
-    const postDate = new Date(date);
+    const postDate = date === "upload" ? uploadDate : updateDate;
     const postTimeDiff = today - postDate;
     return postTimeDiff <= daysForNewPost * 86400000;
   }
 
+  function formatDate(date) {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    return `${day.toString().length === 1 ? "0" + day : day}-${month.toString().length === 1 ? "0" + month : month}-${year}`;
+  }
+
   return (
-    <div className={"card text-primary bg-primary-content shadow-sm"}>
-      <figure className="h-48 w-full rounded-md">
+    <div
+      className={
+        (currentTheme === "dark"
+          ? "bg-base-300 "
+          : currentTheme === "light"
+            ? "bg-base-300 "
+            : "bg-primary-content text-primary ") + "card shadow-sm"
+      }
+    >
+      <figure className="h-70 w-full rounded-md">
         <img src={imageUrl} alt={title} />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
-          {title}
-          {isNewPost(dateUploaded) && (
-            <div className="badge badge-secondary">NEW</div>
-          )}
-          {isNewPost(dateUpdated) && (
-            <div className="badge badge-secondary">UPDATED</div>
-          )}
-        </h2>
+        <div className="card-title">
+          <h2 className="card-title">
+            {title}
+            {isNewPost("upload") && (
+              <div className="badge badge-success">NEW</div>
+            )}
+            {isNewPost("update") && (
+              <div className="badge badge-info">UPDATED</div>
+            )}
+          </h2>
+        </div>
         <p>{description}</p>
 
-        <div className="card-actions justify-between">
+        <div className="card-actions justify-between m-3">
           <a
-            className="btn"
+            className={
+              (currentTheme === "dark"
+                ? "btn btn-primary "
+                : currentTheme === "light"
+                  ? "btn btn-secondary "
+                  : "btn btn-accent ") + "btn"
+            }
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
@@ -47,7 +75,13 @@ export default function ProjectCards({
           </a>
           {liveLink && (
             <a
-              className="btn"
+              className={
+                (currentTheme === "dark"
+                  ? "btn btn-secondary "
+                  : currentTheme === "light"
+                    ? "btn btn-accent "
+                    : "btn btn-secondary-content ") + "btn"
+              }
               href={liveLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -58,12 +92,19 @@ export default function ProjectCards({
           )}
         </div>
 
-        <div className="card-actions mt-3 justify-end">
+        <div className="card-actions my-3 justify-end">
           {techList.map((tech) => (
-            <div className="badge badge-secondary" key={tech}>
+            <div className="badge-error text-primary-content badge" key={tech}>
               {tech}
             </div>
           ))}
+        </div>
+
+        <div>
+          <p>
+            Last Updated:{" "}
+            {dateUpdated ? formatDate(updateDate) : formatDate(uploadDate)}
+          </p>
         </div>
       </div>
     </div>
