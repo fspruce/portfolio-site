@@ -1,7 +1,9 @@
 import { FaPaintBrush } from "react-icons/fa";
+import { useSetCurrentTheme } from "../hooks/getCurrentTheme";
 
-export default function ThemeController({ setCurrentTheme }) {
+export default function ThemeController() {
   const themes = ["default", "light", "dark"];
+  const setCurrentTheme = useSetCurrentTheme();
   const themeElements = themes.map((theme) => (
     <li key={theme}>
       <input

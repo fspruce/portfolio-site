@@ -1,8 +1,6 @@
 import "./App.css";
 import useScrollDirection from "./hooks/useScrollDirection.js";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { useLocalStorage } from "usehooks-ts";
-import { useEffect } from "react";
 
 //Importing from the pages folder
 import LandingPage from "./pages/LandingPage.jsx";
@@ -18,16 +16,6 @@ export default function App() {
   const navigate = useNavigate();
   const scrollDirection = useScrollDirection();
 
-  const [currentTheme, setCurrentTheme] = useLocalStorage(
-    "theme",
-    "caramellatte"
-  );
-  useEffect(() => {
-    if (currentTheme) {
-      document.documentElement.setAttribute("data-theme", currentTheme);
-    }
-  }, [currentTheme]);
-
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -39,11 +27,7 @@ export default function App() {
               : "translate-y-0 opacity-100")
           }
         >
-          <Navbar
-            navigate={navigate}
-            currentTheme={currentTheme}
-            setCurrentTheme={setCurrentTheme}
-          />
+          <Navbar navigate={navigate} />
         </nav>
         <main className="grow flex flex-col">
           <Routes>

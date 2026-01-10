@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useGetCurrentTheme } from "../hooks/getCurrentTheme";
 import ThemeController from "./ThemeController";
 
-export default function Navbar({ navigate, currentTheme, setCurrentTheme }) {
+export default function Navbar({ navigate }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   function handleLinkClick(path) {
     navigate(path);
@@ -16,8 +17,8 @@ export default function Navbar({ navigate, currentTheme, setCurrentTheme }) {
     "Contact Me": "/contact",
   };
 
+  const [currentTheme] = useGetCurrentTheme();
   const location = useLocation();
-
   const linkElements = Object.entries(links).map(([key, value]) => (
     <li key={key}>
       <a
@@ -78,7 +79,7 @@ export default function Navbar({ navigate, currentTheme, setCurrentTheme }) {
               {/* Navbar menu content here */}
               {linkElements}
               <li>
-                <ThemeController setCurrentTheme={setCurrentTheme} />
+                <ThemeController />
               </li>
             </ul>
           </div>
@@ -94,7 +95,7 @@ export default function Navbar({ navigate, currentTheme, setCurrentTheme }) {
           {/* Sidebar content here */}
           {linkElements}
           <li>
-            <ThemeController setCurrentTheme={setCurrentTheme} />
+            <ThemeController />
           </li>
         </ul>
       </div>
