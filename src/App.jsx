@@ -17,7 +17,6 @@ import Footer from "./components/Footer.jsx";
 export default function App() {
   const navigate = useNavigate();
   const scrollDirection = useScrollDirection();
-  console.log(scrollDirection);
 
   const [currentTheme, setCurrentTheme] = useLocalStorage(
     "theme",
