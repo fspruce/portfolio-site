@@ -4,13 +4,12 @@ import emailjs from "@emailjs/browser";
 export default function ContactForm() {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
-  const [status, setStatus] = useState(""); // To show success/error messages
+  const [status, setStatus] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
     setIsSending(true);
 
-    // Replace these with your actual IDs from EmailJS dashboard
     const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -20,7 +19,7 @@ export default function ContactForm() {
       .then(
         (result) => {
           setStatus("success");
-          form.current.reset(); // Clear the form
+          form.current.reset();
         },
         (error) => {
           setStatus("error");
@@ -34,9 +33,7 @@ export default function ContactForm() {
 
   return (
     <>
-      {/* Parent container that fills the space between header and footer */}
       <div className="grow flex items-center justify-center p-6 lg:p-12 bg-base-100">
-        {/* The Form - max-w-4xl makes it feel "Big", shadow-2xl gives it depth */}
         <form
           ref={form}
           onSubmit={sendEmail}
@@ -46,7 +43,6 @@ export default function ContactForm() {
             Send Me A Message!
           </legend>
 
-          {/* Input Group: Name & Email in a row on larger screens, stacked on mobile */}
           <div className="flex flex-col md:flex-row gap-6">
             <div className="form-control w-full">
               <label className="label">
@@ -76,7 +72,6 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Title Input */}
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text text-lg font-bold">Subject</span>
@@ -91,7 +86,6 @@ export default function ContactForm() {
             <p className="validator-hint hidden">Required</p>
           </div>
 
-          {/* Message Area - Grows to take up remaining height if parent is tall */}
           <div className="form-control w-full grow">
             <label className="label">
               <span className="label-text text-lg font-bold">Message</span>
@@ -105,7 +99,6 @@ export default function ContactForm() {
             <p className="validator-hint hidden">Required</p>
           </div>
 
-          {/* Extra Large Button */}
           <button
             type="submit"
             className="btn btn-primary btn-lg w-full text-xl h-20 rounded-2xl shadow-lg hover:scale-[1.01] transition-transform"
