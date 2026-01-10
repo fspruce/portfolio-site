@@ -11,9 +11,8 @@ export default function Navbar({ navigate, currentTheme, setCurrentTheme }) {
 
   const links = {
     Home: "/",
-    "Featured Projects": "/projects",
-    "My Skills": "/skills",
     "About Me": "/about",
+    "Featured Projects": "/projects",
     "Contact Me": "/contact",
   };
 
