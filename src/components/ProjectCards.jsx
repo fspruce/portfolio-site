@@ -33,11 +33,9 @@ export default function ProjectCards({
   return (
     <div
       className={
-        (currentTheme === "dark"
+        (currentTheme !== "default"
           ? "bg-base-300 "
-          : currentTheme === "light"
-            ? "bg-base-300 "
-            : "bg-primary-content text-primary ") + "card shadow-sm"
+          : "bg-primary-content text-primary ") + "card shadow-sm"
       }
     >
       <figure className="h-70 w-full rounded-md">
@@ -61,10 +59,10 @@ export default function ProjectCards({
           <a
             className={
               (currentTheme === "dark"
-                ? "btn btn-primary "
+                ? "btn-primary "
                 : currentTheme === "light"
-                  ? "btn btn-secondary "
-                  : "btn btn-accent ") + "btn"
+                  ? "btn-secondary "
+                  : "btn-accent ") + "btn"
             }
             href={githubLink}
             target="_blank"
@@ -77,10 +75,10 @@ export default function ProjectCards({
             <a
               className={
                 (currentTheme === "dark"
-                  ? "btn btn-secondary "
+                  ? "btn-secondary "
                   : currentTheme === "light"
-                    ? "btn btn-accent "
-                    : "btn btn-secondary-content ") + "btn"
+                    ? "btn-accent "
+                    : "btn-secondary-content ") + "btn"
               }
               href={liveLink}
               target="_blank"
