@@ -14,10 +14,19 @@ export default function ProjectsPage() {
         const { data, error } = await supabase
           .from("projects")
           .select("*")
-          .order("updated_at", { ascending: false, nullsFirst: false })
-          .order("created_at", { ascending: false });
-        if (error) throw error; // Handle errors
-        setProjects(data);
+          .order("created_at", { ascending: false })
+          .order("updated_at", { ascending: false });
+
+        if (error) throw error;
+
+        //Logic to sort which project appears first in the list
+        const sortedProjects = data.sort((a, b) => {
+          const dateA = new Date(a.updated_at || a.created_at);
+          const dateB = new Date(b.updated_at || b.created_at);
+          return dateB - dateA;
+        });
+
+        setProjects(sortedProjects);
         setIsLoading(false);
       } catch (err) {
         console.error("Error fetching projects:", err.message);
