@@ -5,11 +5,11 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        lg: "1.125rem", // Default large size
-        xl: "1.25rem", // Slightly larger
-        "2xl": "1.5rem", // Larger for headings
-        "3xl": "1.875rem", // Even larger for prominent text
-        "4xl": "2.25rem", // Hero text
+        lg: "1.125rem",
+        xl: "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
       },
     },
   plugins: [
@@ -17,7 +17,7 @@ export default {
       addBase({
         "@screen lg": {
           html: {
-            fontSize: "18px", // Increase base font size for large screens
+            fontSize: "18px",
           },
           body: {
             fontSize: theme("fontSize.lg"),
@@ -25,7 +25,7 @@ export default {
         },
         "@screen xl": {
           html: {
-            fontSize: "20px", // Further increase for extra-large screens
+            fontSize: "20px",
           },
           body: {
             fontSize: theme("fontSize.xl"),
