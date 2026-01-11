@@ -16,9 +16,9 @@ export default function ProjectsPage() {
           .select("*")
           .order("updated_at", { ascending: false, nullsFirst: false })
           .order("created_at", { ascending: false });
-        setIsLoading(false);
         if (error) throw error; // Handle errors
         setProjects(data);
+        setIsLoading(false);
       } catch (err) {
         console.error("Error fetching projects:", err.message);
       }
@@ -36,7 +36,7 @@ export default function ProjectsPage() {
     );
   } else {
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-10">
         {projects.map((project) => (
           <ProjectCards
             key={project.id}
