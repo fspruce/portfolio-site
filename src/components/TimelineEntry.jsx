@@ -69,7 +69,7 @@ export default function TimelineEntry({
         {details.includes("//") ? formatDetails(details) : details}
         {imageUrl && (
           <div className="flex justify-center">
-            <img src={imageUrl} className="lg:max-w-[50%] mt-3" />
+            <img src={imageUrl} alt={title} className="lg:max-w-[50%] mt-3" />
           </div>
         )}
       </div>
