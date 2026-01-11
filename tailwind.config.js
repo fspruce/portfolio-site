@@ -12,6 +12,7 @@ export default {
         "4xl": "2.25rem",
       },
     },
+  },
   plugins: [
     plugin(function ({ addBase, theme }) {
       addBase({
