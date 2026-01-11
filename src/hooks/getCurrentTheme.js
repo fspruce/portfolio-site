@@ -2,10 +2,7 @@ import { useLocalStorage } from "usehooks-ts";
 import { useEffect } from "react";
 
 export function useCurrentTheme() {
-  const [currentTheme, setCurrentTheme] = useLocalStorage(
-    "theme",
-    "caramellatte"
-  );
+  const [currentTheme, setCurrentTheme] = useLocalStorage("theme", "default");
   useEffect(() => {
     if (currentTheme) {
       document.documentElement.setAttribute("data-theme", currentTheme);

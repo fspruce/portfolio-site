@@ -1,3 +1,4 @@
+import Timeline from "../components/Timeline";
 export default function AboutPage() {
-  return <a href="/">← Go Back </a>;
+  return <Timeline />;
 }
