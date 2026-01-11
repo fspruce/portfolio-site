@@ -90,9 +90,12 @@ export default function ProjectCards({
           )}
         </div>
 
-        <div className="card-actions my-3 justify-end">
+        <div className="card-actions my-3 justify-center lg:justify-end">
           {techList.map((tech) => (
-            <div className="badge-error text-primary-content badge" key={tech}>
+            <div
+              className="badge-error p-2 text-primary-content badge"
+              key={tech}
+            >
               {tech}
             </div>
           ))}
