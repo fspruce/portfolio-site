@@ -55,7 +55,7 @@ export default function ProjectCards({
         </div>
         <p>{description}</p>
 
-        <div className="card-actions justify-between m-3">
+        <div className="card-actions justify-center lg:justify-between m-3">
           <a
             className={
               (currentTheme === "dark"
