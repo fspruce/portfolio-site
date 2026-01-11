@@ -28,7 +28,7 @@ export default function ProjectsPage() {
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-10">
         <ProjectCardsSkeleton />
         <ProjectCardsSkeleton />
         <ProjectCardsSkeleton />
@@ -36,7 +36,7 @@ export default function ProjectsPage() {
     );
   } else {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-10">
         {projects.map((project) => (
           <ProjectCards
             key={project.id}
