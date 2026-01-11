@@ -1,14 +1,14 @@
 export default function Hero({ navigate }) {
   return (
-    <div className="hero bg-base-200 grow flex items-center justify-center">
-      <div className="hero-content p-10 flex-col lg:flex-row lg:gap-8">
+    <div className="hero grow flex items-center justify-center p-6 lg:p-0 bg-base-100">
+      <div className="bg-base-200 hero-content p-10 lg:p-20 border border-base-300 rounded-4xl shadow-2xl flex-col lg:flex-row lg:gap-8 w-full max-w-[90%] h-auto">
         <img
           src="https://whvtyrgmvzxyewsmyszc.supabase.co/storage/v1/object/sign/portfolio-assets/images/hero/fintan.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iOTk1OTQxZi00MjUyLTQ5NjQtODFiNi0yMWUzYzVlYWEwYTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0Zm9saW8tYXNzZXRzL2ltYWdlcy9oZXJvL2ZpbnRhbi5qcGciLCJpYXQiOjE3NjgwNjEzNjAsImV4cCI6NDkyMTY2MTM2MH0.UsCdTPIkMHUQeFWczpEtTjVNktAD39kxkUToW4-dGe4"
-          className="max-w-sm lg:max-w-md rounded-lg shadow-2xl"
+          className="max-w-sm rounded-lg shadow-2xl h-auto w-auto"
         />
-        <div className="flex flex-col justify-center">
-          <h1 className="text-5xl lg:text-6xl mx-auto font-bold">Welcome!</h1>
-          <p className="py-6 px-20 lg:px-0 text-center lg:text-start lg:text-lg">
+        <div className="flex flex-col justify-center gap-6 w-full max-w-[90%] px-4">
+          <h1 className="text-5xl text-center font-bold">Welcome!</h1>
+          <p className="py-6 px-4 text-center text-lg">
             My name is Fintan Spruce. I'm a junior developer who jumped from
             teaching into software. I earned a 2:1 BSc (Hons) in Mathematics,
             and completed Code Institute's full-stack bootcamp, and I now apply
@@ -24,7 +24,7 @@ export default function Hero({ navigate }) {
             may have!
           </p>
           <button
-            className="btn btn-primary mx-auto lg:mt-5"
+            className="btn btn-primary mx-auto mt-5 scale-110"
             onClick={() => navigate("/about")}
           >
             Learn More
