@@ -1,7 +1,9 @@
 import { useGetCurrentTheme } from "../hooks/getCurrentTheme";
+import useHandleRedirect from "../hooks/useHandleRedirect";
 
-export default function Hero({ navigate }) {
+export default function Hero() {
   const currentTheme = useGetCurrentTheme();
+  const handleRedirect = useHandleRedirect();
   return (
     <div className="hero grow flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-base-100">
       <div className="bg-base-200 hero-content md:p-6 lg:p-12 border border-base-300 rounded-4xl shadow-2xl flex flex-wrap lg:flex-nowrap lg:gap-6 w-full max-w-[90%]">
@@ -37,7 +39,7 @@ export default function Hero({ navigate }) {
                     ? "btn-secondary "
                     : "btn-accent ") + "btn m-2 p-3 md:m-3 btn-l md:btn-xl"
               }
-              onClick={() => navigate("/projects")}
+              onClick={() => handleRedirect("/projects")}
               aria-label="Go to projects page"
             >
               Projects
@@ -47,7 +49,7 @@ export default function Hero({ navigate }) {
                 (currentTheme === "light" ? "btn-accent " : "btn-secondary ") +
                 "btn m-2 p-3 md:m-3 btn-l md:btn-xl"
               }
-              onClick={() => navigate("/about")}
+              onClick={() => handleRedirect("/about")}
               aria-label="Go to about me page"
             >
               About Me
@@ -57,7 +59,7 @@ export default function Hero({ navigate }) {
                 (currentTheme === "dark" ? "btn-accent " : "btn-primary ") +
                 "btn m-2 p-3 md:m-3 btn-l md:btn-xl"
               }
-              onClick={() => navigate("/projects")}
+              onClick={() => handleRedirect("/contact")}
               aria-label="Go to contact page"
             >
               Contact me

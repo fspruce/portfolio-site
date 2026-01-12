@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useGetCurrentTheme } from "../hooks/getCurrentTheme";
+import useHandleRedirect from "../hooks/useHandleRedirect";
 import ThemeController from "./ThemeController";
 
-export default function Navbar({ navigate }) {
+export default function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const handleRedirect = useHandleRedirect();
+
   function handleLinkClick(path) {
-    navigate(path);
+    handleRedirect(path);
     setDrawerOpen(false);
   }
 
@@ -71,7 +74,7 @@ export default function Navbar({ navigate }) {
           </div>
           <div className="mx-2 flex-1 px-2">
             <a
-              onClick={() => navigate("/")}
+              onClick={() => handleRedirect("/")}
               className="cursor-pointer select-none"
             >
               Fintan Spruce || Junior Developer

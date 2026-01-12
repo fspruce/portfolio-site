@@ -1,6 +1,6 @@
 import "./App.css";
 import useScrollDirection from "./hooks/useScrollDirection.js";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 //Importing from the pages folder
 import LandingPage from "./pages/LandingPage.jsx";
@@ -13,7 +13,6 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
-  const navigate = useNavigate();
   const scrollDirection = useScrollDirection();
 
   return (
@@ -27,11 +26,11 @@ export default function App() {
               : "translate-y-0 opacity-100")
           }
         >
-          <Navbar navigate={navigate} />
+          <Navbar />
         </nav>
         <main className="grow flex flex-col">
           <Routes>
-            <Route path="/" element={<LandingPage navigate={navigate} />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/contact" element={<ContactPage />} />
