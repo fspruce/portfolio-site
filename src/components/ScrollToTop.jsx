@@ -43,7 +43,7 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={() => handleScrollButton()}
-      className={`cursor-pointer fixed  ${scrollDirection === "up" ? "sm:top-18" : "sm:top-3"} transform px-4 py-2 rounded border border-accent/20 shadow-lg z-50 bg-base-100/40 md:max-w-[30%] lg:max-w-[10%] ${!hasScrolled && "hidden"} right-5 sm:left-1/2 sm:-translate-x-1/2`}
+      className={`cursor-pointer fixed  ${scrollDirection === "up" ? "top-20" : "top-3"} transform px-4 py-2 rounded border border-accent/20 shadow-lg z-50 bg-base-100/40 md:max-w-[30%] lg:max-w-[10%] ${!hasScrolled && "hidden"} right-5 sm:left-1/2 sm:-translate-x-1/2`}
     >
       <span className="md:hidden">↑</span>
       <span className="hidden md:block">Scroll to Top</span>

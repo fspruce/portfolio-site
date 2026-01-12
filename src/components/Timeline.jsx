@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 import TimelineEntry from "./TimelineEntry";
-import ScrollToTop from "./ScrollToTop";
 
 export default function Timeline() {
   const [timeline, setTimeline] = useState([]);
@@ -46,7 +45,6 @@ export default function Timeline() {
             />
           ))}
         </ul>
-        <ScrollToTop />
       </div>
     );
   }
