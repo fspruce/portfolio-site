@@ -13,21 +13,6 @@ export default function ScrollToTop() {
     const handleScroll = () => {
       const y = window.scrollY;
       setHasScrolled(y !== 0);
-
-      const footer = document.querySelector("footer");
-      if (footer) {
-        const footerTop = footer.getBoundingClientRect().top + window.scrollY;
-        const viewportHeight = window.innerHeight;
-        const buttonMargin = 10;
-
-        if (window.scrollY + viewportHeight >= footerTop) {
-          setButtonBottom(
-            `${viewportHeight - (footerTop - window.scrollY) + buttonMargin}px`
-          );
-        } else {
-          setButtonBottom("20px");
-        }
-      }
     };
 
     window.addEventListener("scroll", handleScroll);
