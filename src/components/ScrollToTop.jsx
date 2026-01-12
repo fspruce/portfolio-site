@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export default function ScrollToTop() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [buttonBottom, setButtonBottom] = useState("20px");
+
+  const handleScrollButton = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,7 +17,7 @@ export default function ScrollToTop() {
       if (footer) {
         const footerTop = footer.getBoundingClientRect().top + window.scrollY;
         const viewportHeight = window.innerHeight;
-        const buttonMargin = 10; // Approximate height of the button
+        const buttonMargin = 10;
 
         if (window.scrollY + viewportHeight >= footerTop) {
           setButtonBottom(
@@ -29,10 +33,26 @@ export default function ScrollToTop() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  function handleScrollButton() {
-    window.scrollTo(0, 0);
-    setHasScrolled(false);
-  }
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code === "Space") {
+        e.preventDefault();
+      }
+    };
+
+    const handleKeyUp = (e) => {
+      if (e.code === "Space") {
+        handleScrollButton();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+    return () => {
+      window.removeEventListener("keydown", handleKeyUp);
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [handleScrollButton]);
 
   return (
     <button
