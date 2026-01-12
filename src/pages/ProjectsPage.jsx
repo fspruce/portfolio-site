@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 import ProjectCards from "../components/ProjectCards";
 import ProjectCardsSkeleton from "../components/ProjectCardsSkeleton";
+import ScrollToTop from "../components/ScrollToTop";
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState([]);
@@ -59,6 +60,7 @@ export default function ProjectsPage() {
             liveLink={project.live_link}
           />
         ))}
+        <ScrollToTop />
       </div>
     );
   }
