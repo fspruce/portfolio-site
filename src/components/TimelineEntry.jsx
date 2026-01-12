@@ -27,7 +27,6 @@ export default function TimelineEntry({
 
   function formatDetails(details) {
     const detailsArray = details.split("//");
-    console.log("Here");
     return (
       <div>
         {detailsArray.map((paragraph, index) => (
@@ -68,8 +67,12 @@ export default function TimelineEntry({
         <div className="text-lg font-black">{title}</div>
         {details.includes("//") ? formatDetails(details) : details}
         {imageUrl && (
-          <div className="flex justify-center">
-            <img src={imageUrl} alt={title} className="lg:max-w-[50%] mt-3" />
+          <div className="flex justify-center ">
+            <img
+              src={imageUrl}
+              alt={title}
+              className="lg:max-w-[50%] mt-3 border border-base-300 rounded-4xl shadow-2xl w-fill"
+            />
           </div>
         )}
       </div>

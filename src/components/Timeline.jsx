@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 import TimelineEntry from "./TimelineEntry";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Timeline() {
   const [timeline, setTimeline] = useState([]);
@@ -32,18 +33,21 @@ export default function Timeline() {
     );
   } else {
     return (
-      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        {timeline.map((entry, index) => (
-          <TimelineEntry
-            key={entry.id}
-            index={index}
-            date={entry.event_date}
-            title={entry.event_title}
-            details={entry.event_details}
-            imageUrl={entry.event_image_url}
-          />
-        ))}
-      </ul>
+      <div>
+        <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+          {timeline.map((entry, index) => (
+            <TimelineEntry
+              key={entry.id}
+              index={index}
+              date={entry.event_date}
+              title={entry.event_title}
+              details={entry.event_details}
+              imageUrl={entry.event_image_url}
+            />
+          ))}
+        </ul>
+        <ScrollToTop />
+      </div>
     );
   }
 }
