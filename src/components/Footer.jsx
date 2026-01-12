@@ -35,13 +35,13 @@ export default function Footer() {
             <FaLinkedin className="text-3xl" />
           </a>
           <a
-            href="mailto:fspruce@fintanspruce.dev"
+            href="mailto:fintan@fintanspruce.dev"
             aria-label="Email link"
             className="flex items-center gap-2"
           >
             <MdEmail className="text-3xl" />
             <span className="hidden lg:inline underline text-sm sm:text-base md:text-lg">
-              fspruce@fintanspruce.dev
+              fintan@fintanspruce.dev
             </span>
           </a>
         </div>
