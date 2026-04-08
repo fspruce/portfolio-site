@@ -8,6 +8,11 @@ export default function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const handleRedirect = useHandleRedirect();
 
+  function handleAnchorClick(event, path) {
+    event.preventDefault();
+    handleLinkClick(path);
+  }
+
   function handleLinkClick(path) {
     handleRedirect(path);
     setDrawerOpen(false);
@@ -25,7 +30,8 @@ export default function Navbar() {
   const linkElements = Object.entries(links).map(([key, value]) => (
     <li key={key}>
       <a
-        onClick={() => handleLinkClick(value)}
+        href={value}
+        onClick={(event) => handleAnchorClick(event, value)}
         className={
           location.pathname === value
             ? currentTheme === "dark"
@@ -74,7 +80,8 @@ export default function Navbar() {
           </div>
           <div className="mx-2 flex-1 px-2">
             <a
-              onClick={() => handleRedirect("/")}
+              href="/"
+              onClick={(event) => handleAnchorClick(event, "/")}
               className="cursor-pointer select-none"
             >
               Fintan Spruce || Junior Developer
