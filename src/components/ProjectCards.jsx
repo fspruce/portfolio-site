@@ -56,21 +56,36 @@ export default function ProjectCards({
         <p>{description}</p>
 
         <div className="card-actions justify-center lg:justify-between m-3">
-          <a
-            className={
-              (currentTheme === "dark"
-                ? "btn-primary "
-                : currentTheme === "light"
-                  ? "btn-secondary "
-                  : "btn-accent ") + "btn"
-            }
-            href={githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub deployment link"
-          >
-            GitHub Repo
-          </a>
+          {githubLink ? (
+            <a
+              className={
+                (currentTheme === "dark"
+                  ? "btn-primary "
+                  : currentTheme === "light"
+                    ? "btn-secondary "
+                    : "btn-accent ") + "btn"
+              }
+              href={githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub deployment link"
+            >
+              GitHub Repo
+            </a>
+          ) : (
+            <span
+              className={
+                (currentTheme === "dark"
+                  ? "btn-primary "
+                  : currentTheme === "light"
+                    ? "btn-secondary "
+                    : "btn-accent ") + "btn invisible pointer-events-none"
+              }
+              aria-hidden="true"
+            >
+              GitHub Repo
+            </span>
+          )}
           {liveLink && (
             <a
               className={
