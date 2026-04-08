@@ -8,7 +8,7 @@ export default function Hero() {
     <div className="hero grow flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-base-100">
       <div className="bg-base-200 hero-content md:p-6 lg:p-12 border border-base-300 rounded-4xl shadow-2xl flex flex-wrap lg:flex-nowrap lg:gap-6 w-full max-w-[90%]">
         <img
-          src="https://whvtyrgmvzxyewsmyszc.supabase.co/storage/v1/object/sign/portfolio-assets/images/hero/fintan.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iOTk1OTQxZi00MjUyLTQ5NjQtODFiNi0yMWUzYzVlYWEwYTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0Zm9saW8tYXNzZXRzL2ltYWdlcy9oZXJvL2ZpbnRhbi5qcGciLCJpYXQiOjE3NjgwNjEzNjAsImV4cCI6NDkyMTY2MTM2MH0.UsCdTPIkMHUQeFWczpEtTjVNktAD39kxkUToW4-dGe4"
+          src="https://whvtyrgmvzxyewsmyszc.supabase.co/storage/v1/object/sign/portfolio-assets/images/hero/Fintan%20Spruce%20(5)%20(flipped).jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iOTk1OTQxZi00MjUyLTQ5NjQtODFiNi0yMWUzYzVlYWEwYTUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwb3J0Zm9saW8tYXNzZXRzL2ltYWdlcy9oZXJvL0ZpbnRhbiBTcHJ1Y2UgKDUpIChmbGlwcGVkKS5qcGciLCJpYXQiOjE3NzU2NDY1MzAsImV4cCI6NDkyOTI0NjUzMH0.Uhsn6PXeXdDn-_B60ml3lLMnvJD68i9iaLzsqFu0n28"
           className="rounded-lg shadow-2xl h-auto w-full max-w-[250px] lg:max-w-[350px]"
         />
         <div className="flex flex-col justify-center gap-4 w-full px-2 sm:px-4">
